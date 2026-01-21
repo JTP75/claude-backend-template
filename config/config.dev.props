@@ -1,0 +1,8 @@
+[database]
+name=myapp_dev
+
+[server]
+debug=true
+
+[logging]
+level=DEBUG
