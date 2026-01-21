@@ -35,16 +35,10 @@ Configuration files use a simple `.props` format with sections and key-value pai
 [database]
 host=localhost
 port=5432
-name=myapp
 
 [server]
 host=0.0.0.0
 port=8080
-debug=true
-
-[logging]
-level=INFO
-format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
 ```
 
 ## Usage
@@ -63,7 +57,6 @@ config = ConfigLoader(env="dev")
 # Access values
 db_host = config.get("database", "host")
 server_port = config.get_int("server", "port")
-debug_mode = config.get_bool("server", "debug")
 ```
 
 ### Using Constants
@@ -74,8 +67,8 @@ from src.config.constants import Sections, Keys
 config = ConfigLoader()
 
 # Type-safe access using constants
-db_host = config.get(Sections.DATABASE, Keys.Database.HOST)
-server_port = config.get_int(Sections.SERVER, Keys.Server.PORT)
+db_host = config.get(Sections.DATABASE, Keys.HOST)
+server_port = config.get_int(Sections.SERVER, Keys.PORT)
 ```
 
 ## Configuration Precedence
